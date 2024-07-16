@@ -29,7 +29,7 @@ const SimpleRegistrationForm = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/user/register",
+        `${window.location.origin}/api/v1/user/register`,
         {
           username: inputs.name,
           email: inputs.email,

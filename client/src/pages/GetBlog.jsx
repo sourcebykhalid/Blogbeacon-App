@@ -22,7 +22,7 @@ const GetBlog = () => {
   const handleDelete = async () => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8080/api/v1/blog/delete-blog/${id}`
+        `${window.location.origin}/api/v1/blog/delete-blog/${id}`
       );
       if (data?.success) {
         toast.success("Blog deleted");

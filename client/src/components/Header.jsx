@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
@@ -19,7 +19,7 @@ function Header() {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/api/v1/blog/all-blogs`
+          `${window.location.origin}/api/v1/blog/all-blogs`
         );
         if (data?.success) {
           setBlogs(data.blogs);
@@ -77,17 +77,17 @@ function Header() {
   };
 
   const navList = (
-    <ul className="flex flex-col md:flex-row justify-center items-center gap-x-4">
+    <ul className="flex flex-col  md:flex-row justify-center items-center gap-x-4">
       {isLogin ? (
         <>
           <div className="flex flex-col md:flex-row justify-center items-center gap-x-4 md:mr-24">
             <NavLink to="/" key="home">
-              <li className="transition-all hover:text-gray-400 cursor-pointer flex justify-center items-center gap-x-1 rounded-sm border-2 border-orange-900 px-2 py-1">
+              <li className="transition-all hover:text-blue-600 cursor-pointer flex justify-center items-center gap-x-1 rounded-sm border-2 border-orange-900 px-2 py-1">
                 Home <FaHome />
               </li>
             </NavLink>
             <NavLink to="/all-blogs" key="all-blogs">
-              <li className="transition-all hover:text-gray-400 cursor-pointer flex justify-center items-center gap-x-1">
+              <li className="transition-all hover:text-blue-600 cursor-pointer flex justify-center items-center gap-x-1">
                 Latest Articles
                 <span className="bg-green-400 text-black w-5 h-5 rounded-full flex justify-center items-center hover:scale-105 transition-colors mb-2">
                   {blogs.length}
@@ -95,7 +95,7 @@ function Header() {
               </li>
             </NavLink>
             <NavLink to="/user-blogs" key="user-blogs">
-              <li className="transition-all hover:text-gray-400 cursor-pointer flex justify-center items-center gap-x-1">
+              <li className="transition-all hover:text-blue-600 cursor-pointer flex justify-center items-center gap-x-1">
                 My Blogs
                 <span className="bg-green-400 text-black w-5 h-5 rounded-full flex justify-center items-center hover:scale-105 transition-colors mb-2">
                   {user.blogs?.length}
@@ -103,7 +103,7 @@ function Header() {
               </li>
             </NavLink>
             <NavLink to="/create-blog" key="create-blog">
-              <li className="hover:text-gray-400 cursor-pointer flex justify-center items-center gap-x-1">
+              <li className="hover:text-blue-600 cursor-pointer flex justify-center items-center gap-x-1">
                 Write <FaPen />
               </li>
             </NavLink>
@@ -114,7 +114,7 @@ function Header() {
             </NavLink>
           </div>
           <NavLink to="/login" key="logout" onClick={handleLogout}>
-            <li className="transition-all hover:scale-105 mt-12 md:mt-0">
+            <li className="transition-all hover:scale-110 font-bold mt-12 md:mt-0">
               Logout
             </li>
           </NavLink>
@@ -153,7 +153,7 @@ function Header() {
       <h2 className="font-bold bg-gradient-to-r from-gray-700 via-blue-700 to-orange-500 bg-clip-text text-transparent text-base md:text-lg cursor-pointer">
         <NavLink to="/">
           blogBea
-          <span className="bg-lime-500 rounded-full text-gray-700 p-1">
+          <span className="bg-green-300 rounded-full text-orange-900 p-1">
             con
           </span>
         </NavLink>

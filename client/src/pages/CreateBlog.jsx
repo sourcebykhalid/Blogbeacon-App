@@ -63,7 +63,7 @@ const CreateBlog = () => {
       console.log("Submitting form with inputs:", inputs);
 
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/blog/create-blog`,
+        `${window.location.origin}/api/v1/blog/create-blog`,
         {
           title: inputs.title,
           description: inputs.description,

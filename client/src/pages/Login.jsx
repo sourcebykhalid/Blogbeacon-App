@@ -1,10 +1,4 @@
-import {
-  Card,
-  Input,
-  Checkbox,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
+import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useState } from "react";
@@ -29,7 +23,7 @@ const SimpleLoginForm = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/user/login",
+        `${window.location.origin}/api/v1/user/login`,
         {
           email: inputs.email,
           password: inputs.password,

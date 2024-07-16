@@ -22,7 +22,7 @@ const UserDetails = () => {
     const userId = localStorage.getItem("userId");
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/user/current-user/${userId}`
+        `${window.location.origin}/api/v1/user/current-user/${userId}`
       );
       if (data?.success) {
         setUser(data.userProfile);

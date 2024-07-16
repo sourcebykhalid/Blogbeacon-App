@@ -8,7 +8,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
 } from "@material-tailwind/react";
 import { FaUser } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
@@ -25,7 +24,7 @@ const Home = ({ username }) => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:8080/api/v1/blog/all-blogs"
+          `${window.location.origin}/api/v1/blog/all-blogs`
         );
         if (data?.success) {
           const sortedBlogs = data.blogs.sort(
@@ -59,7 +58,7 @@ const Home = ({ username }) => {
   };
 
   return (
-    <div className=" bg-gray-800">
+    <div className=" bg-gray-400">
       {/* Hero Section */}
       <div className="relative  w-full text-gray-500 flex justify-center items-center py-40 ">
         <div className="relative z-10 text-center px-4 leading-[3rem]">
@@ -82,7 +81,7 @@ const Home = ({ username }) => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className=" text-gray-100 text-sm mt-5"
+                className=" text-gray-900 text-sm mt-5"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
                 ullam nisi debitis officiis hic ratione atque. Fuga quis
@@ -95,7 +94,7 @@ const Home = ({ username }) => {
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className=" text-gray-100 text-sm mx-6"
+                className=" text-gray-900 text-sm mx-6"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
                 ullam nisi debitis officiis hic ratione atque. Fuga quis
@@ -120,7 +119,7 @@ const Home = ({ username }) => {
       <div className=" bg-gradient-to-b from-blue-gray-100 to-orange-900">
         <Reveal>
           {" "}
-          <div className="py-16">
+          <div className="py-16 md:py-36">
             <Typography variant="h2" className="text-center mb-8">
               Recent Blog Posts
             </Typography>
@@ -180,14 +179,17 @@ const Home = ({ username }) => {
               </Typography>
               <Typography className="mb-8 text-black">
                 BlogBeacon is your go-to source for the latest and greatest blog
-                posts on a variety of topics. Whether you're interested in tech,
-                lifestyle, travel, or more, we've got you covered with
-                insightful articles from passionate writers.
+                posts on a variety of topics. Whether you&apos;re interested in
+                tech, lifestyle, travel, or more, we&apos;ve got you covered
+                with insightful articles from passionate writers.
               </Typography>
             </div>
           </div>
         </Reveal>
       </div>
+      <p className=" w-full text-center bg-green-400 p-2">
+        © Khalid | blogBeacon, 2024. All rights reserved.
+      </p>
     </div>
   );
 };

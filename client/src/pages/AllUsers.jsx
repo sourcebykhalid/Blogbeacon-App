@@ -9,7 +9,7 @@ function AllUsers() {
     const fetchUserProfile = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/api/v1/user/all-users`
+          `${window.location.origin}/api/v1/user/all-users`
         );
 
         if (data?.success) {

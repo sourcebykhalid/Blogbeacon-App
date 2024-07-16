@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import colors from "colors";
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL, {
@@ -7,9 +8,9 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log("Connected to Mongodb Database successfully".bgMagenta.white);
+    console.log("Connected to MongoDB Database successfully".bgMagenta.white);
   } catch (error) {
-    console.log("Mongo connect error".bgRed.white);
+    console.log("MongoDB connection error".bgRed.white);
   }
 };
 

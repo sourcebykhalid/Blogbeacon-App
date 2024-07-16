@@ -18,7 +18,7 @@ const CommentSection = () => {
     const fetchComments = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/api/v1/comments/${id}`
+          `${window.location.origin}/api/v1/comments/${id}`
         );
         if (data?.success) {
           setComments(data.comments);
